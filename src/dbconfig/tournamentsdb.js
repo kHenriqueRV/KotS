@@ -17,13 +17,18 @@ const tournamentsdb = {
 
     },
 
-    update(id, tournament) {
-        if (this.tournaments.has(id)) {
-            this.tournaments.set(id, tournament);
-        }
+    async update(id, tournament) {
+        await sql`
+        UPDATE tournaments
+        SET tittle = ${tournament.tittle}, description = ${tournament.description}, photo = ${tournament.photo}, participants = ${tournament.participants}
+        WHERE id = ${id}
+        `
+
     },
-    delete(id) {
-        this.tournaments.delete(id);
+    async delete(id) {
+        await sql`
+        DELETE FROM tournaments
+        WHERE id = ${id}`
     }
 }
 
