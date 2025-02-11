@@ -14,7 +14,6 @@ const tournamentsdb = {
         INSERT INTO tournaments (id, tittle, description, photo , participants) 
         VALUES (${id}, ${tournament.tittle}, ${tournament.description},${tournament.photo} ,${tournament.participants}) 
         `
-
     },
 
     async update(id, tournament) {
