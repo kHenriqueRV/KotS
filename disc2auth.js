@@ -46,8 +46,9 @@ router.get('/redirect', async (req, res) => {
                     discord_role: discord_role,
                     email: userData.data.email
                 };
-                await usersdb.create(user);
-                res.redirect(301, '../../api/tournaments/')
+                // await usersdb.create(user);
+                // res.redirect(301, '../../api/tournaments/')
+                res.json(userInfo.data);
             } else {
                 res.status(400).json({ error: "Usuário não encontrado" });
             }
